@@ -1,6 +1,6 @@
 {
-  "name": "firebase-counter",
-  "description": "Counter with firebase backend",
+  "name": "firebase-save",
+  "description": "Save data to firebase",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
@@ -14,12 +14,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/zrrrzzt/firebase-counter.git"
+    "url": "http://github.com/zrrrzzt/firebase-save.git"
   },
   "bugs": {
-    "url": "http://github.com/zrrrzzt/firebase-counter/issues"
+    "url": "http://github.com/zrrrzzt/firebase-save/issues"
   },
-  "homepage": "https://github.com/zrrrzzt/firebase-counter",
+  "homepage": "https://github.com/zrrrzzt/firebase-save",
   "engines": {
     "node": ">=6.9.4"
   },
