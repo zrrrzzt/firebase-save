@@ -1,7 +1,7 @@
 {
   "name": "firebase-save",
   "description": "Save data to firebase",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "author": {
     "name": "Geir Gåsodden",
