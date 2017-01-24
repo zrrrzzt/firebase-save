@@ -1,35 +1,21 @@
 'use strict'
 
-const { get } = require('got')
+const { get, put } = require('got')
 
 module.exports = (options) => {
-  const firebase = require('firebase')
-  const app = firebase.initializeApp({
-    apiKey: options.apiKey,
-    authDomain: options.authDomain,
-    databaseURL: options.databaseURL
-  }, options.appName)
-
-  if (options.authEmail && options.authPassword) {
-    app.auth().signInWithEmailAndPassword(options.authEmail, options.authPassword).catch(error => {
-      return error
-    })
-  }
-
-  const database = app.database()
-
   const save = (args, callback) => {
     return new Promise((resolve, reject) => {
       const selectedKey = args.key || 'value'
       const value = args.value || {}
-      const valueRef = database.ref(selectedKey)
-      valueRef.set(value)
-        .then(() => {
-          const result = {key: selectedKey, value: value}
+      const url = `${options.databaseURL}/${selectedKey}.json`
+
+      put(url, {body: JSON.stringify(value), json: true})
+        .then((result) => {
+          const data = result.body
           if (callback) {
-            return callback(null, result)
+            return callback(null, data)
           }
-          resolve(result)
+          resolve(data)
         })
         .catch((error) => {
           if (callback) {
@@ -46,11 +32,10 @@ module.exports = (options) => {
       const url = `${options.databaseURL}/${selectedKey}.json`
       get(url, {json: true}).then((data) => {
         const value = data.body
-        const result = {key: selectedKey, value: value}
         if (callback) {
-          return result
+          return value
         }
-        resolve(result)
+        resolve(value)
       }).catch((error) => {
         reject(error)
       })

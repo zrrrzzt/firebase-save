@@ -22,12 +22,7 @@ Saves and loookups values for a specific key in firebase.
 ```JavaScript
 const fbs = require('firebase-save')
 const options = {
-  apiKey: '<your-api-key>',
-  authDomain: '<your-auth-domain>',
-  databaseURL: '<your-database-url>',
-  appName: '<your-app-name>',
-  authEmail: '<your-auth-email>',
-  authPassword: '<your-auth-password>'
+  databaseURL: '<your-database-url>'
 }
 
 const database = fbs(options)
@@ -46,6 +41,18 @@ const someData = {
 database.save(someData).then(data => console.log(data))
 
 database.lookup({'key': 'somedata'}).then(data => console.log(data))
+```
+
+returns
+
+```JavaScript
+{ 
+  birdy: true, 
+  fishy: true, 
+  ugly: { 
+    facts: 'alternative' 
+  } 
+}
 ```
 
 ## License
