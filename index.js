@@ -1,5 +1,7 @@
 'use strict'
 
+const { get } = require('got')
+
 module.exports = (options) => {
   const firebase = require('firebase')
   const app = firebase.initializeApp({
@@ -41,8 +43,9 @@ module.exports = (options) => {
   const lookup = (args, callback) => {
     return new Promise((resolve, reject) => {
       const selectedKey = args.key || 'value'
-      database.ref(selectedKey).once('value').then((snapshot) => {
-        const value = snapshot.val()
+      const url = `${options.databaseURL}/${selectedKey}.json`
+      get(url, {json: true}).then((data) => {
+        const value = data.body
         const result = {key: selectedKey, value: value}
         if (callback) {
           return result

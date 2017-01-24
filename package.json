@@ -41,6 +41,7 @@
     "nsp": "2.6.2"
   },
   "dependencies": {
-    "firebase": "3.6.6"
+    "firebase": "3.6.6",
+    "got": "6.7.1"
   }
 }
