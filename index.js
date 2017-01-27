@@ -1,6 +1,6 @@
 'use strict'
 
-const { get, put } = require('got')
+const got = require('got')
 
 module.exports = (options) => {
   const save = (args, callback) => {
@@ -9,7 +9,7 @@ module.exports = (options) => {
       const value = args.value || {}
       const url = `${options.databaseURL}/${selectedKey}.json`
 
-      put(url, {body: JSON.stringify(value), json: true})
+      got.put(url, {body: JSON.stringify(value), json: true})
         .then((result) => {
           const data = result.body
           if (callback) {
@@ -30,7 +30,7 @@ module.exports = (options) => {
     return new Promise((resolve, reject) => {
       const selectedKey = args.key || 'value'
       const url = `${options.databaseURL}/${selectedKey}.json`
-      get(url, {json: true}).then((data) => {
+      got.get(url, {json: true}).then((data) => {
         const value = data.body
         if (callback) {
           return value

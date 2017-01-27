@@ -1,7 +1,7 @@
 {
   "name": "firebase-save",
   "description": "Save data to firebase",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "license": "MIT",
   "author": {
     "name": "Geir Gåsodden",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/zrrrzzt/firebase-save",
   "engines": {
-    "node": ">=6.9.4"
+    "node": ">=4.7.2"
   },
   "main": "index.js",
   "scripts": {

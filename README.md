@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/zrrrzzt/firebase-save.svg?branch=master)](https://travis-ci.org/zrrrzzt/firebase-save)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-[![Greenkeeper badge](https://badges.greenkeeper.io/zrrrzzt/firebase-save.svg)](https://greenkeeper.io/)
 
 # firebase-save
 
