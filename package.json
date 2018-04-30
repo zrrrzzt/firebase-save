@@ -38,7 +38,7 @@
     "coveralls": "2.11.16",
     "standard": "9.0.0",
     "tap": "10.1.0",
-    "nsp": "2.6.2"
+    "nsp": "2.8.1"
   },
   "dependencies": {
     "got": "6.7.1"
