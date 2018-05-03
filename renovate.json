@@ -1,6 +1,12 @@
+
 {
   "extends": [
     "config:base"
   ],
-  "statusCheckVerify": true
+  "devDependencies": {
+    "automerge": true
+  },
+  "assignees": [
+    "zrrrzzt"
+  ]
 }
