@@ -1,27 +1,18 @@
-'use strict'
+const axios = require('axios')
 
-const got = require('got')
-
-module.exports = (options) => {
+module.exports = options => {
   const save = (args, callback) => {
     return new Promise((resolve, reject) => {
       const selectedKey = args.key || 'value'
       const value = args.value || {}
       const url = `${options.databaseURL}/${selectedKey}.json`
 
-      got.put(url, {body: JSON.stringify(value), json: true})
-        .then((result) => {
-          const data = result.body
-          if (callback) {
-            return callback(null, data)
-          }
-          resolve(data)
+      axios.put(url, value)
+        .then(result => {
+          return callback ? callback(null, result.data) : resolve(result.data)
         })
         .catch((error) => {
-          if (callback) {
-            return callback(error, null)
-          }
-          reject(error)
+          return callback ? callback(error, null) : reject(error)
         })
     })
   }
@@ -30,14 +21,10 @@ module.exports = (options) => {
     return new Promise((resolve, reject) => {
       const selectedKey = args.key || 'value'
       const url = `${options.databaseURL}/${selectedKey}.json`
-      got.get(url, {json: true}).then((data) => {
-        const value = data.body
-        if (callback) {
-          return value
-        }
-        resolve(value)
+      axios.get(url).then(result => {
+        return callback ? result.data : resolve(result.data)
       }).catch((error) => {
-        reject(error)
+        return callback ? error : reject(error)
       })
     })
   }
