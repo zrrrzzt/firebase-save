@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/zrrrzzt/firebase-save#readme",
   "engines": {
-    "node": ">=8.11.3"
+    "node": ">=8.16.0"
   },
   "main": "index.js",
   "scripts": {
